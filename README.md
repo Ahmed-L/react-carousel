@@ -72,7 +72,7 @@ function App() {
         paginationClassNames={"dot"}
         paginationActiveClassNames={"activeDot"}
         showPagination={true}
-        paginationPosition={"botom"}
+        paginationPosition={"bottom"}
         showIndicators={true}
         leftIndicatorClassNames={"left_btn"}
         rightIndicatorClassNames={"right_btn"}
