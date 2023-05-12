@@ -52,16 +52,33 @@ Set up the Tailwind directives inside the global css file:
 ## Usage
 
 ```javascript
-import { CarouselHandler } from "vs-react-component-carousel";
+import { Carousel } from "vs-react-component-carousel";
 
-// ele = your images URL list
-<CarouselHandler
-  autoplay={false}
-  rows={2}
-  elements={ele}
-  show={1}
-  slideby={1}
-/>;
+function App() {
+  // ele = your images URL list
+  const ele = [
+    "https://via.placeholder.com/600x400?text=A",
+    "https://via.placeholder.com/600x400?text=B",
+    "https://via.placeholder.com/600x400?text=C",
+    "https://via.placeholder.com/600x400?text=D",
+  ];
+  return (
+    <div className="flex w-screen h-screen relative bg-slate-800">
+      <Carousel
+        autoplay={false}
+        rows={1}
+        elements={ele}
+        showItemsPerRow={1}
+        dotsClassNames={"dot"}
+        dotActiveClassNames={"activeDot"}
+        showIndicators={true}
+        leftIndicatorClassNames={"left_btn"}
+        rightIndicatorClassNames={"right_btn"}
+        carouselContainerClassNames={"container_style"}
+      />
+    </div>
+  );
+}
 ```
 
 ## Contributing
