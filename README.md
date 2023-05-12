@@ -63,7 +63,7 @@ function App() {
     "https://via.placeholder.com/600x400?text=D",
   ];
   return (
-    <div className="flex w-screen h-screen relative bg-slate-800">
+    <div className="flex w-screen h-screen relative">
       <Carousel
         autoplay={false}
         rows={1}
