@@ -1,0 +1,18 @@
+.btn-danger{
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.btn-default{
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

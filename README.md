@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# vs-react-component-carousel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A react and tailwind component library.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Use the package manager npm to install the package.
 
-### `npm start`
+```bash
+npm install vs-react-component-carousel
+or
+yarn add vs-react-component-carousel
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This component library internally uses TailwindCSS to compose it's design. So TailwindCSS need to be installed as dependency.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm install -D tailwindcss postcss autoprefixer
+or
+yarn add --dev vs-react-component-carousel
+```
 
-### `npm test`
+after that initialise Tailwind in the project.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npx tailwindcss init -p
+```
 
-### `npm run build`
+Allow Tailwind compiler to apply css on the library code.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+module.exports = {
+  content: [
+    ...
+    './node_modules/vs-react-component-carousel/**/*.{js,ts,jsx,tsx,mdx,cjs}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Set up the Tailwind directives inside the global css file:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```javascript
+import { CarouselHandler } from "vs-react-component-carousel";
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+// ele = your images URL list
+<CarouselHandler
+  autoplay={false}
+  rows={2}
+  elements={ele}
+  show={1}
+  slideby={1}
+/>;
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contributing
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
 
-## Learn More
+Please make sure to update tests as appropriate.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](https://choosealicense.com/licenses/mit/)
