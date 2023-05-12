@@ -19,8 +19,10 @@ function App() {
         rows={2}
         elements={ele}
         showItemsPerRow={3}
-        dotsClassNames={"dot"}
-        dotActiveClassNames={"activeDot"}
+        paginationClassNames={"dot"}
+        paginationActiveClassNames={"activeDot"}
+        showPagination={true}
+        paginationPosition={"botom"}
         showIndicators={true}
         leftIndicatorClassNames={"left_btn"}
         rightIndicatorClassNames={"right_btn"}

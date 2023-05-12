@@ -66,11 +66,13 @@ function App() {
     <div className="flex w-screen h-screen relative">
       <Carousel
         autoplay={false}
-        rows={1}
+        rows={2}
         elements={ele}
-        showItemsPerRow={1}
-        dotsClassNames={"dot"}
-        dotActiveClassNames={"activeDot"}
+        showItemsPerRow={3}
+        paginationClassNames={"dot"}
+        paginationActiveClassNames={"activeDot"}
+        showPagination={true}
+        paginationPosition={"botom"}
         showIndicators={true}
         leftIndicatorClassNames={"left_btn"}
         rightIndicatorClassNames={"right_btn"}

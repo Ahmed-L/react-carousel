@@ -6,12 +6,12 @@ import "./carousel.css";
 export const Carousel = (props) => {
   const {
     classNames = "",
-    dotclassNames = "dot",
-    dotActiveClassNames = "active",
+    paginationClassNames = "dot",
+    paginationActiveClassNames = "active",
     autoplay = true,
     autoplayInterval = 1000,
-    dotsPosition = "bottom",
-    showdots = true,
+    paginationPosition = "bottom",
+    showPagination = true,
     rows = 1,
     showIndicator = true,
     rightIndicatorClassNames = "right-arrow",
@@ -34,7 +34,9 @@ export const Carousel = (props) => {
     if (element !== null) {
       element.style.transition = "none";
       if (transitionChanged === 1) {
-        element.style.transform = `translateX(-${showItemsPerRow * (100 / showItemsPerRow)}%)`;
+        element.style.transform = `translateX(-${
+          showItemsPerRow * (100 / showItemsPerRow)
+        }%)`;
       } else if (transitionChanged === -1) {
         element.style.transform = `translateX(-${
           (length - showItemsPerRow) * (100 / showItemsPerRow)
@@ -45,11 +47,15 @@ export const Carousel = (props) => {
   const enableTransition = () => {
     if (element) {
       element.style.transition = "all 250ms linear";
-      element.style.transform = `translateX(-${currentIndex * (100 / showItemsPerRow)}%)`;
+      element.style.transform = `translateX(-${
+        currentIndex * (100 / showItemsPerRow)
+      }%)`;
     }
   };
   const [currentIndex, setCurrentIndex] = useState(showItemsPerRow + 1);
-  const [length, setLength] = useState(children.length + showItemsPerRow + showItemsPerRow);
+  const [length, setLength] = useState(
+    children.length + showItemsPerRow + showItemsPerRow
+  );
   const [transitionChanged, setTransitionChanged] = useState(0);
   const [activeDot, setActiveDot] = useState(0);
 
@@ -92,7 +98,6 @@ export const Carousel = (props) => {
         (currentIndex + slideby) * (100 / showItemsPerRow)
       }%)`;
       setTimeout(() => {
-        console.log("TIMEOUT CALLED");
         disableTransition();
         setTransitionChanged(0);
         setCurrentIndex(showItemsPerRow + 1);
@@ -167,7 +172,9 @@ export const Carousel = (props) => {
             id="transition_div"
             className={`h-full carousel-content show-${showItemsPerRow} bg-red-700 flex flex-wrap flex-col justify-center items-center `} //h-{calc(100/${rows})%}
             style={{
-              transform: `translateX(-${currentIndex * (100 / showItemsPerRow)}%)`,
+              transform: `translateX(-${
+                currentIndex * (100 / showItemsPerRow)
+              }%)`,
             }}
           >
             {infinite_scrollable_children}
@@ -179,21 +186,24 @@ export const Carousel = (props) => {
           </button>
         )}
       </div>
-      {showdots && (
-        <div className={`carousel-dots-${dotsPosition}`}>
+      {showPagination && (
+        <div className={`carousel-dots-${paginationPosition}`}>
           {children.length &&
             children.map((_, index) => (
               <button
                 key={index}
                 className={
                   index === activeDot
-                    ? clsx(dotclassNames, dotActiveClassNames)
-                    : `${dotclassNames}`
+                    ? clsx(paginationClassNames, paginationActiveClassNames)
+                    : `${paginationClassNames}`
                 }
                 onClick={() => {
                   enableTransition();
                   console.log("clicked: ", index);
-                  console.log("currentIndex: ", currentIndex - showItemsPerRow - 1);
+                  console.log(
+                    "currentIndex: ",
+                    currentIndex - showItemsPerRow - 1
+                  );
                   setCurrentIndex(index + 1 + showItemsPerRow);
                   // setActiveDot(index)
                 }}
